@@ -45,7 +45,7 @@ export interface CampRegistrationRow {
   phone: string;
   total_fee: number;
   amount_paid: number;
-  /** Postgres generated column — read-only, never send this in an insert/update payload. */
+  /** Postgres generated column: read-only, never send this in an insert/update payload. */
   percentage_paid: number;
   created_at: string;
 }

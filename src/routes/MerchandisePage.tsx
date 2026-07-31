@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { Eyebrow } from '../components/common/Eyebrow';
 import { MerchCard } from '../components/merchandise/MerchCard';
 import { ITEMS } from '../data/merchandise';
+import { SITE_CONFIG, telHref } from '../data/siteConfig';
 
 export function MerchandisePage() {
   const reduceMotion = useReducedMotion();
@@ -17,7 +18,8 @@ export function MerchandisePage() {
             your M-Pesa message so we can confirm your order.
           </p>
           <p className="small-note">
-            Need help with sizing or an order? Call/WhatsApp <a href="tel:0741366218">0741 366 218</a>.
+            Need help with sizing or an order? Call/WhatsApp <b>{SITE_CONFIG.merchContact.name}</b>:{' '}
+            <a href={telHref(SITE_CONFIG.merchContact.phone)}>{SITE_CONFIG.merchContact.phone}</a>.
           </p>
         </div>
       </section>

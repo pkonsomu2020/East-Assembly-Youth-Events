@@ -17,7 +17,7 @@ export function CampAccountPage() {
     subheading = 'Create your account to start tracking your payments';
   } else if (state.status === 'needs-registration') {
     heading = 'Complete Your Registration';
-    subheading = 'Just your name and phone number — takes less than a minute';
+    subheading = 'Just your name and phone number. It takes less than a minute';
   } else if (state.status === 'dashboard') {
     heading = 'Your Camp Ignite Dashboard';
     subheading = 'Track your payments and progress toward camp';

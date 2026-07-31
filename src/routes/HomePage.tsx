@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { Eyebrow } from '../components/common/Eyebrow';
 import { Heading } from '../components/common/Heading';
 import { HeroPhotoShowcase } from '../components/hero/HeroPhotoShowcase';
+import { SITE_CONFIG, telHref } from '../data/siteConfig';
 
 const FEATURE_CARDS = [
   { title: 'Youth Events', blurb: 'Dinner, retreats, worship nights & hangouts.', to: '/events', cta: 'View Events' },
@@ -111,14 +112,24 @@ export function HomePage() {
                 <div className="cta-tags">
                   <span className="cta-tag">🔥 On Fire For Christ</span>
                   <span className="cta-tag">🤝 New & Existing Members Welcome</span>
-                  <span className="cta-tag">📞 0741 366 218</span>
+                  <span className="cta-tag">🙋 3 Team Contacts Below</span>
                 </div>
               </div>
               <div className="cta-banner-action">
-                <a href="tel:0741366218" className="btn btn-flame">Call Us: 0741 366 218</a>
-                <p className="cta-caption">
+                <p className="cta-caption" style={{ marginTop: 0 }}>
                   Reach out and someone from our team will connect with you personally.
                 </p>
+                <div className="contact-chip-list">
+                  {SITE_CONFIG.mainContacts.map((contact) => (
+                    <a key={contact.phone} href={telHref(contact.phone)} className="contact-chip">
+                      <span className="contact-chip-icon">📞</span>
+                      <span>
+                        <b>{contact.name}</b>
+                        <small>{contact.phone}</small>
+                      </span>
+                    </a>
+                  ))}
+                </div>
                 <Link to="/volunteer" className="cta-secondary-link">See Volunteer Teams →</Link>
               </div>
             </div>

@@ -1,5 +1,5 @@
 -- ============================================================
--- KAG EAST ASSEMBLY YOUTH MINISTRY — SUPABASE SCHEMA
+-- KAG EAST ASSEMBLY YOUTH MINISTRY: SUPABASE SCHEMA
 -- Run this once in Supabase Dashboard -> SQL Editor -> New query
 -- ============================================================
 
@@ -26,7 +26,7 @@ create policy "Public can insert event registrations"
   on event_registrations for insert
   with check (true);
 
--- No public read access — admins use the Supabase Table Editor / service role to view & verify.
+-- No public read access; admins use the Supabase Table Editor / service role to view & verify.
 
 -- ---------- MERCHANDISE ----------
 

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { SITE_CONFIG, telHref } from '../../data/siteConfig';
 
 export function SiteFooter() {
   return (
@@ -13,7 +14,7 @@ export function SiteFooter() {
               style={{ marginBottom: 14 }}
             />
             <p style={{ color: '#DCEFFA', maxWidth: 320 }}>
-              Raising a generation on fire for Christ &mdash; through worship, fellowship, and service. Follow us and
+              Raising a generation on fire for Christ, through worship, fellowship, and service. Follow us and
               stay connected to everything happening in the youth ministry.
             </p>
             <div className="social-row">
@@ -48,11 +49,18 @@ export function SiteFooter() {
           </div>
           <div>
             <h4>Get In Touch</h4>
-            <p>
-              Merchandise &amp; general enquiries:
-              <br />
-              <a href="tel:0741366218">0741 366 218</a>
-            </p>
+            <p className="small-note" style={{ color: '#DCEFFA', marginBottom: 10 }}>General enquiries:</p>
+            <div className="footer-contacts">
+              {SITE_CONFIG.mainContacts.map((contact) => (
+                <a key={contact.phone} href={telHref(contact.phone)} className="footer-contact-link">
+                  <span className="footer-contact-icon">📞</span>
+                  <span>
+                    <b>{contact.name}</b>
+                    <small>{contact.phone}</small>
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
         <div className="footer-bottom">

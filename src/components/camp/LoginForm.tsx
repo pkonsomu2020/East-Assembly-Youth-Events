@@ -38,7 +38,7 @@ export function LoginForm({ onLoggedIn }: { onLoggedIn: () => void }) {
       setAlert({ message: error.message, type: 'error' });
       return;
     }
-    setAlert({ message: 'Password reset link sent — check your email.', type: 'success' });
+    setAlert({ message: 'Password reset link sent. Check your email.', type: 'success' });
   }
 
   return (

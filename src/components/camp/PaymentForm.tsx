@@ -73,8 +73,8 @@ export function PaymentForm({
         </Button>
       </form>
       <p className="small-note" style={{ marginTop: 10 }}>
-        After you submit, our team verifies it against the till statement and updates your progress — you'll see
-        it reflected here once confirmed.
+        After you submit, our team verifies it against the till statement and updates your progress, and you'll
+        see it reflected here once confirmed.
       </p>
     </div>
   );

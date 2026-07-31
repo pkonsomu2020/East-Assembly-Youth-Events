@@ -7,6 +7,7 @@ import { Button } from '../common/Button';
 import { TillBox } from '../common/TillBox';
 import { SizePicker } from './SizePicker';
 import { ColorPicker } from './ColorPicker';
+import { SITE_CONFIG } from '../../data/siteConfig';
 
 export function MerchOrderForm({ item }: { item: MerchItem }) {
   const [size, setSize] = useState('');
@@ -43,7 +44,10 @@ export function MerchOrderForm({ item }: { item: MerchItem }) {
     setSubmitting(false);
 
     if (error) {
-      setAlert({ message: 'Something went wrong. Please try again or call 0741 366 218.', type: 'error' });
+      setAlert({
+        message: `Something went wrong. Please try again or call ${SITE_CONFIG.merchContact.name} on ${SITE_CONFIG.merchContact.phone}.`,
+        type: 'error',
+      });
       console.error(error);
       return;
     }

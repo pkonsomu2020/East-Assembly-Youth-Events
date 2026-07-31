@@ -1,6 +1,6 @@
 import type { GarmentIconId } from '../../types/domain';
 
-// Camp Ignite flame logo image (flame graphic only, no text) — used as a small
+// Camp Ignite flame logo image (flame graphic only, no text), used as a small
 // "printed logo" mark on merchandise icons. Aspect ratio is 213:365.
 const FLAME_ASPECT = 213 / 365;
 

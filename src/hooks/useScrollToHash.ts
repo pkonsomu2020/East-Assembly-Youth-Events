@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 /**
  * React Router doesn't jump to #hash targets the way a plain <a href="#join">
- * did on the old static site — replicate that behavior on every navigation.
+ * did on the old static site. Replicate that behavior on every navigation.
  */
 export function useScrollToHash() {
   const { hash, pathname } = useLocation();

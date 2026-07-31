@@ -5,9 +5,16 @@ import { SITE_CONFIG } from '../../data/siteConfig';
 const SLIDES = [
   '/assets/camp_1.jpeg',
   '/assets/camp_2.jpeg',
-  '/assets/gallery/gallery-01.jpg',
-  '/assets/gallery/gallery-02.jpg',
+  '/assets/camp_3.jpeg',
+  '/assets/camp_4.jpeg',
+  '/assets/camp_5.jpeg',
 ];
+
+const slideVariants = {
+  enter: (dir: number) => ({ x: `${dir * 100}%` }),
+  center: { x: 0 },
+  exit: (dir: number) => ({ x: `${dir * -100}%` }),
+};
 
 function formatCampDates() {
   const start = new Date(SITE_CONFIG.campStart);
@@ -18,33 +25,45 @@ function formatCampDates() {
 }
 
 export function HeroPhotoShowcase() {
-  const [slide, setSlide] = useState(0);
+  const [[slide, direction], setSlide] = useState<[number, number]>([0, 1]);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const timer = setInterval(() => setSlide((s) => (s + 1) % SLIDES.length), 4500);
+    const timer = setInterval(() => goTo(slide + 1), 4500);
     return () => clearInterval(timer);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slide]);
 
   function goTo(index: number) {
-    setSlide(((index % SLIDES.length) + SLIDES.length) % SLIDES.length);
+    const dir = index > slide || (index === 0 && slide === SLIDES.length - 1) ? 1 : -1;
+    setSlide([((index % SLIDES.length) + SLIDES.length) % SLIDES.length, dir]);
   }
 
   return (
     <div className="hero-photo-showcase">
       <div className="hero-photo-frame">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={slide}
-            className="hero-photo-frame-inner"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: reduceMotion ? 0 : 0.4 }}
-          >
-            <img src={SLIDES[slide]} alt="Youth ministry moments" />
-          </motion.div>
-        </AnimatePresence>
+        <div className="hero-photo-viewport">
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.div
+              key={slide}
+              className="hero-photo-frame-inner"
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: reduceMotion ? 0 : 0.55, ease: 'easeInOut' }}
+            >
+              <motion.img
+                src={SLIDES[slide]}
+                alt="Youth ministry moments"
+                initial={{ scale: 1 }}
+                animate={{ scale: reduceMotion ? 1 : 1.12 }}
+                transition={{ duration: 4.5, ease: 'linear' }}
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
         <button
           type="button"

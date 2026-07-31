@@ -5,7 +5,6 @@ import { Heading } from '../components/common/Heading';
 import { Lightbox } from '../components/common/Lightbox';
 import { EventCard } from '../components/events/EventCard';
 import { EventCalendar } from '../components/events/EventCalendar';
-import { EventsHeroIllustration } from '../components/events/EventsHeroIllustration';
 import { EVENTS } from '../data/events';
 
 export function EventsPage() {
@@ -14,37 +13,28 @@ export function EventsPage() {
 
   return (
     <>
-      <section className="hero">
-        <div className="container hero-grid">
-          <motion.div
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Eyebrow>🎉 Youth Events</Eyebrow>
-            <h1>
-              <span className="wt-black">What's</span>{' '}
-              <span className="wt-bold-italic">Coming</span>{' '}
-              <span className="wt-regular">Up</span>
-            </h1>
-            <p style={{ fontSize: '1.05rem', maxWidth: 480 }}>
-              Tap an event below to reserve your spot. Dinner and the Retreat need a ticket — Worship Experience
-              and Chill Out are completely free.
-            </p>
-            <div className="hero-actions">
-              <a href="#events-grid" className="btn btn-primary">See Events</a>
-              <a href="#calendar" className="btn btn-outline">View Calendar</a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-          >
-            <EventsHeroIllustration />
-          </motion.div>
-        </div>
+      <section className="section-tight">
+        <motion.div
+          className="container center"
+          initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Eyebrow>🎉 Youth Events</Eyebrow>
+          <h1>
+            <span className="wt-black">What's</span>{' '}
+            <span className="wt-bold-italic">Coming</span>{' '}
+            <span className="wt-regular">Up</span>
+          </h1>
+          <p style={{ fontSize: '1.05rem', maxWidth: 560, margin: '0 auto' }}>
+            Tap an event below to reserve your spot. Dinner and the Retreat need a ticket; Worship Experience
+            and Chill Out are completely free.
+          </p>
+          <div className="hero-actions" style={{ justifyContent: 'center' }}>
+            <a href="#events-grid" className="btn btn-primary">See Events</a>
+            <a href="#calendar" className="btn btn-outline">View Calendar</a>
+          </div>
+        </motion.div>
       </section>
 
       <section id="events-grid" className="anchor-target section-tight">
@@ -77,7 +67,7 @@ export function EventsPage() {
             <Eyebrow>Plan Ahead</Eyebrow>
             <Heading underline>Event Calendar</Heading>
             <p className="small-note">
-              Tap a highlighted date to mark it as one you're interested in — it'll be saved on this device.
+              Tap a highlighted date to mark it as one you're interested in. It'll be saved on this device.
             </p>
           </div>
           <EventCalendar />
