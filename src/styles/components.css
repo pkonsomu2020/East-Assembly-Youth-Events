@@ -156,13 +156,14 @@
 .card-date{
   display:inline-flex; align-items:center; gap:6px; font-family: var(--display); font-weight:700;
   font-size:.82rem; color: var(--sky-deep); background: var(--sky-pale); padding: 5px 12px; border-radius: 999px;
+  margin-bottom: 12px;
 }
 .card-price{ font-family: var(--display); font-weight: 800; font-size: 1.3rem; color: var(--flame-deep); }
 
-.card-header-row{ display:flex; align-items:center; gap:12px; margin-bottom: 14px; }
-.card-thumb{
-  flex-shrink: 0; width: 56px; height: 56px; border-radius: var(--r-md); object-fit: cover;
-  display:flex; align-items:center; justify-content:center; font-size: 1.5rem; cursor: zoom-in;
+.card-banner{
+  width: calc(100% + 52px); margin: -26px -26px 14px; aspect-ratio: 16 / 10; object-fit: cover;
+  border-radius: var(--r-lg) var(--r-lg) 0 0; display:flex; align-items:center; justify-content:center;
+  font-size: 3rem; cursor: zoom-in;
 }
 .event-card-cap-flame{ background: linear-gradient(135deg, var(--flame), var(--flame-deep)); cursor:default; }
 .event-card-cap-free{ background: linear-gradient(135deg, var(--sky), var(--sky-deep)); cursor:default; }

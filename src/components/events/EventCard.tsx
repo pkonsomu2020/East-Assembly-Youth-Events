@@ -8,21 +8,19 @@ export function EventCard({ event, onOpenPoster }: { event: EventDef; onOpenPost
 
   return (
     <div className="card card-fill">
-      <div className="card-header-row">
-        {event.poster ? (
-          <img
-            src={event.poster}
-            alt={`${event.name} poster`}
-            className="card-thumb"
-            onClick={() => onOpenPoster(event.poster!)}
-          />
-        ) : (
-          <div className={`card-thumb ${event.requiresPayment ? 'event-card-cap-flame' : 'event-card-cap-free'}`}>
-            {event.requiresPayment ? '🎟️' : '🎉'}
-          </div>
-        )}
-        <span className="card-date">📅 {event.dateLabel}</span>
-      </div>
+      {event.poster ? (
+        <img
+          src={event.poster}
+          alt={`${event.name} poster`}
+          className="card-banner"
+          onClick={() => onOpenPoster(event.poster!)}
+        />
+      ) : (
+        <div className={`card-banner ${event.requiresPayment ? 'event-card-cap-flame' : 'event-card-cap-free'}`}>
+          {event.requiresPayment ? '🎟️' : '🎉'}
+        </div>
+      )}
+      <span className="card-date">📅 {event.dateLabel}</span>
       <h3>{event.name}</h3>
       {event.subtitle && <p className="small-note" style={{ margin: '-8px 0 10px' }}>{event.subtitle}</p>}
       <p>{event.blurb}</p>
