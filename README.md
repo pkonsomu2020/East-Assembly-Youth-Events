@@ -56,13 +56,13 @@ npm run preview
 
 1. Push this whole folder to a GitHub repository.
 2. In Vercel, click **Add New → Project** and import the GitHub repo.
-3. Name the project `east-assembly-youth-events`. Vercel assigns the URL `https://<project-name>.vercel.app`, so this name gives you `east-assembly-youth-events.vercel.app`.
+3. Name the project `east-assembly-youth-ministry`. Vercel assigns the URL `https://<project-name>.vercel.app`, so this name gives you `east-assembly-youth-ministry.vercel.app`.
 4. Vercel auto-detects the Vite framework preset (build command `npm run build`, output directory `dist`). The included `vercel.json` pins these explicitly and also adds the SPA rewrite rule (`/* → /index.html`) so that refreshing or deep-linking to a route like `/events` or `/camp-ignite` doesn't 404. No manual routing configuration needed.
 5. Under **Project Settings → Environment Variables**, add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` (same values as your local `.env`) for the Production (and Preview, if you want preview deployments to work too) environment.
 6. Deploy.
 7. **Update Supabase's allowed redirect URLs**: go to your Supabase project → **Authentication → URL Configuration** and:
-   - Set **Site URL** to `https://east-assembly-youth-events.vercel.app`
-   - Add `https://east-assembly-youth-events.vercel.app/**` to **Redirect URLs** (keep `http://localhost:5173/**` there too so local dev still works)
+   - Set **Site URL** to `https://east-assembly-youth-ministry.vercel.app`
+   - Add `https://east-assembly-youth-ministry.vercel.app/**` to **Redirect URLs** (keep `http://localhost:5173/**` there too so local dev still works)
 
    This matters because the "Forgot password?" and signup-confirmation emails link back to whatever URL the app requests (`src/components/camp/LoginForm.tsx` and `SignupForm.tsx` build this from `window.location.origin`, so it's automatically correct for local dev, Vercel preview deployments, and production). Supabase will silently reject any redirect URL that isn't on this allow-list, so the production domain has to be added here or those email links won't work.
 
