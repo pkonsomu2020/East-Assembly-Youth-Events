@@ -481,3 +481,10 @@ th{ font-family: var(--display); font-weight:700; color: var(--sky-deep); font-s
 .contact-chip b{ display:block; font-family: var(--display); font-size:.88rem; }
 .contact-chip small{ display:block; opacity:.75; font-size:.78rem; }
 
+/* Camp Ignite logo badge */
+.camp-logo-badge{
+  width: 64px; height: 64px; display:flex; align-items:center; justify-content:center;
+  margin-bottom: 16px;
+}
+.camp-logo-badge img{ width:100%; height:100%; object-fit:contain; }
+

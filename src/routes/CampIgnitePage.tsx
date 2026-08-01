@@ -24,7 +24,10 @@ export function CampIgnitePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Eyebrow>🔥 Mombasa &middot; 27 Dec &ndash; 2 Jan</Eyebrow>
+            <div className="camp-logo-badge">
+              <img src="/assets/camp-ignite-flame-icon.png" alt="Camp Ignite 2026" />
+            </div>
+            <Eyebrow>Mombasa &middot; 27 Dec &ndash; 2 Jan</Eyebrow>
             <h1>Camp Ignite 2026</h1>
             <p style={{ fontSize: '1.05rem', maxWidth: 480 }}>
               Total camp fee: <b>Ksh {SITE_CONFIG.campFeeTotal.toLocaleString()}</b>. Pay in installments at your
