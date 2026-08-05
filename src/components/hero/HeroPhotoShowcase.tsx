@@ -72,7 +72,7 @@ export function HeroPhotoShowcase() {
           onClick={() => goTo(slide - 1)}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="#122A3C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M15 18L9 12L15 6" stroke="#101C33" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
         <button
@@ -82,7 +82,7 @@ export function HeroPhotoShowcase() {
           onClick={() => goTo(slide + 1)}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M9 6L15 12L9 18" stroke="#122A3C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M9 6L15 12L9 18" stroke="#101C33" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
 

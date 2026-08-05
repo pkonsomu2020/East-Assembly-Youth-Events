@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useScrollProgress } from '../../hooks/useScrollProgress';
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -13,9 +14,11 @@ const NAV_LINKS = [
 export function SiteHeader() {
   const [navOpen, setNavOpen] = useState(false);
   const { pathname } = useLocation();
+  const progress = useScrollProgress();
 
   return (
     <header className="site-header">
+      <span className="scroll-progress" style={{ width: `${progress}%` }} />
       <div className="nav-wrap">
         <Link to="/" className="brand" onClick={() => setNavOpen(false)}>
           <img src="/assets/logo.png" alt="KAG East Assembly Youth Ministry" className="brand-logo" />
@@ -27,7 +30,7 @@ export function SiteHeader() {
           onClick={() => setNavOpen((open) => !open)}
         >
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-            <path d="M3 6H21M3 12H21M3 18H21" stroke="#122A3C" strokeWidth="2" strokeLinecap="round" />
+            <path d="M3 6H21M3 12H21M3 18H21" stroke="#101C33" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </button>
         <ul className={`nav-links${navOpen ? ' open' : ''}`}>

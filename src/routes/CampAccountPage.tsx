@@ -23,30 +23,27 @@ export function CampAccountPage() {
     subheading = 'Track your payments and progress toward camp';
   }
 
+  const isDashboard = state.status === 'dashboard';
+
   return (
     <section className="auth-page">
-      <span className="auth-page-decor auth-page-decor-1" />
-      <span className="auth-page-decor auth-page-decor-2" />
-
-      <div className="auth-page-inner">
-        <Link to="/" className="auth-logo-link">
-          <img src="/assets/logo.png" alt="KAG East Assembly Youth Ministry" className="auth-logo" />
-        </Link>
-        <h1 className="auth-heading">{heading}</h1>
-        <p className="auth-subheading">{subheading}</p>
-
-        {state.status === 'dashboard' ? (
+      <div className={`auth-page-inner${isDashboard ? ' auth-page-inner-wide' : ''}`}>
+        {isDashboard ? (
           <CampDashboard registration={state.registration} onLoggedOut={refresh} />
         ) : (
-          <div className="auth-card">
-            {state.status === 'loading' && <p className="center small-note">Loading...</p>}
-            {state.status === 'signed-out' && (
-              <AuthPanel mode={mode} onModeChange={setMode} onAuthed={refresh} />
-            )}
-            {state.status === 'needs-registration' && (
-              <RegisterCampForm userId={state.userId} onRegistered={refresh} />
-            )}
-          </div>
+          <>
+            <h1 className="auth-heading">{heading}</h1>
+            <p className="auth-subheading">{subheading}</p>
+            <div className="auth-card">
+              {state.status === 'loading' && <p className="center small-note">Loading...</p>}
+              {state.status === 'signed-out' && (
+                <AuthPanel mode={mode} onModeChange={setMode} onAuthed={refresh} />
+              )}
+              {state.status === 'needs-registration' && (
+                <RegisterCampForm userId={state.userId} onRegistered={refresh} />
+              )}
+            </div>
+          </>
         )}
 
         <p className="small-note center" style={{ marginTop: 20 }}>

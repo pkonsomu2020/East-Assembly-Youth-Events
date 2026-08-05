@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Eyebrow } from '../components/common/Eyebrow';
-import { Heading } from '../components/common/Heading';
 import { Lightbox } from '../components/common/Lightbox';
 import { EventCard } from '../components/events/EventCard';
 import { EventCalendar } from '../components/events/EventCalendar';
@@ -39,38 +38,36 @@ export function EventsPage() {
 
       <section id="events-grid" className="anchor-target section-tight">
         <div className="container">
-          <motion.div
-            className="grid grid-2"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
-          >
-            {EVENTS.map((event) => (
-              <motion.div
-                key={event.slug}
-                variants={{
-                  hidden: { opacity: 0, y: reduceMotion ? 0 : 16 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.35 } },
-                }}
-              >
-                <EventCard event={event} onOpenPoster={setLightboxSrc} />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+          <div className="events-layout">
+            <motion.div
+              className="grid grid-2"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-80px' }}
+              variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+            >
+              {EVENTS.map((event) => (
+                <motion.div
+                  key={event.slug}
+                  variants={{
+                    hidden: { opacity: 0, y: reduceMotion ? 0 : 16 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.35 } },
+                  }}
+                >
+                  <EventCard event={event} onOpenPoster={setLightboxSrc} />
+                </motion.div>
+              ))}
+            </motion.div>
 
-      <section id="calendar" className="anchor-target section-alt">
-        <div className="container">
-          <div className="center" style={{ marginBottom: 24 }}>
-            <Eyebrow>Plan Ahead</Eyebrow>
-            <Heading underline>Event Calendar</Heading>
-            <p className="small-note">
-              Tap a highlighted date to mark it as one you're interested in. It'll be saved on this device.
-            </p>
+            <aside id="calendar" className="anchor-target events-sidebar">
+              <Eyebrow>Plan Ahead</Eyebrow>
+              <h3 style={{ marginBottom: 4 }}>Event Calendar</h3>
+              <p className="small-note" style={{ marginBottom: 16 }}>
+                Tap a highlighted date to mark it as one you're interested in. It'll be saved on this device.
+              </p>
+              <EventCalendar />
+            </aside>
           </div>
-          <EventCalendar />
         </div>
       </section>
 

@@ -18,7 +18,7 @@ export function PaymentHistoryTable({ payments }: { payments: PaymentHistoryEntr
               <td>{new Date(p.created_at).toLocaleDateString()}</td>
               <td>Ksh {Number(p.amount).toLocaleString()}</td>
               <td>
-                <span className={`status-pill status-${p.status === 'verified' ? 'verified' : 'pending'}`}>
+                <span className={`status-pill status-${p.status}`}>
                   {p.status}
                 </span>
               </td>

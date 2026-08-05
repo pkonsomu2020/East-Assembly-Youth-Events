@@ -55,7 +55,7 @@ export function PaymentForm({
   }
 
   return (
-    <div className="card" style={{ marginBottom: 24 }}>
+    <div className="card">
       <h3>Make a Payment</h3>
       <TillBox />
       <form onSubmit={handleSubmit}>

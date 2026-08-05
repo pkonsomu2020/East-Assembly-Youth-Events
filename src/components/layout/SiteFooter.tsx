@@ -1,6 +1,15 @@
 import { Link } from 'react-router-dom';
 import { SITE_CONFIG, telHref } from '../../data/siteConfig';
 
+function initials(name: string) {
+  return name
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+}
+
 export function SiteFooter() {
   return (
     <footer className="site-footer">
@@ -13,7 +22,7 @@ export function SiteFooter() {
               className="footer-logo"
               style={{ marginBottom: 14 }}
             />
-            <p style={{ color: '#DCEFFA', maxWidth: 320 }}>
+            <p style={{ color: '#9FB6C6', maxWidth: 320 }}>
               Raising a generation on fire for Christ, through worship, fellowship, and service. Follow us and
               stay connected to everything happening in the youth ministry.
             </p>
@@ -48,12 +57,11 @@ export function SiteFooter() {
             <p><Link to="/volunteer">Volunteer</Link></p>
           </div>
           <div>
-            <h4>Get In Touch</h4>
-            <p className="small-note" style={{ color: '#DCEFFA', marginBottom: 10 }}>General enquiries:</p>
+            <h4>General Contacts</h4>
             <div className="footer-contacts">
               {SITE_CONFIG.mainContacts.map((contact) => (
                 <a key={contact.phone} href={telHref(contact.phone)} className="footer-contact-link">
-                  <span className="footer-contact-icon">📞</span>
+                  <span className="footer-contact-icon">{initials(contact.name)}</span>
                   <span>
                     <b>{contact.name}</b>
                     <small>{contact.phone}</small>
@@ -64,7 +72,8 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="footer-bottom">
-          &copy; {new Date().getFullYear()} KAG East Assembly Youth Ministry. Raising a generation on fire. 🔥
+          <span>&copy; {new Date().getFullYear()} KAG East Assembly Youth Ministry.</span>
+          <span>Raising a generation on fire. 🔥</span>
         </div>
       </div>
     </footer>

@@ -1,10 +1,5 @@
 import { useCalendarMarks } from '../../hooks/useCalendarMarks';
 
-const MONTH_NAMES = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
-];
-
 export function CalendarMonth({
   year,
   month,
@@ -30,6 +25,7 @@ export function CalendarMonth({
       <div
         key={d}
         className={`cal-day${isEvent ? ' event' : ''}${isMarked ? ' marked' : ''}`}
+        title={eventDays[d]}
         onClick={isEvent ? () => toggle(d) : undefined}
       >
         {d}
@@ -39,16 +35,11 @@ export function CalendarMonth({
   }
 
   return (
-    <div style={{ marginBottom: 28 }}>
-      <div className="cal-head">
-        <h3 style={{ margin: 0 }}>{MONTH_NAMES[month]} {year}</h3>
-      </div>
-      <div className="cal-grid">
-        {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((d, i) => (
-          <div key={i} className="cal-dow">{d}</div>
-        ))}
-        {cells}
-      </div>
+    <div className="cal-grid">
+      {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((d, i) => (
+        <div key={i} className="cal-dow">{d}</div>
+      ))}
+      {cells}
     </div>
   );
 }

@@ -1,0 +1,34 @@
+:root{
+  /* Color tokens (matches the main site's neo-brutalist palette) */
+  --sky:        #1B7FB5;
+  --sky-deep:   #123047;
+  --sky-pale:   #EDF8FE;
+  --sky-mist:   #F3F9FC;
+  --white:      #FFFFFF;
+  --cream:      #F7FAFC;
+  --flame:      #F97B4F;
+  --flame-deep: #D9542B;
+  --flame-pale: #FDE9E0;
+  --ink:        #101C33;
+  --navy-deep:  #0E2A3F;
+  --ink-soft:   #5A7387;
+  --line:       #101C33;
+  --success:    #1E9E6B;
+  --success-pale: #E6F7F0;
+  --pending:    #C98A00;
+  --pending-pale: #FFF4E0;
+  --danger:     #C0392B;
+  --danger-pale: #FDECEC;
+
+  /* Type */
+  --display: 'Montserrat', sans-serif;
+  --body: 'Plus Jakarta Sans', sans-serif;
+
+  /* Radius / shadow */
+  --r-sm: 0px;
+  --r-md: 0px;
+  --r-lg: 0px;
+  --shadow: 6px 8px 0 var(--ink);
+  --shadow-sm: 3px 4px 0 var(--ink);
+  --border: 2px solid var(--ink);
+}

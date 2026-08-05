@@ -20,21 +20,23 @@ export function MerchCard({ item }: { item: MerchItem }) {
   const Icon = item.id !== 'book' ? GARMENT_ICONS[item.id] : undefined;
 
   return (
-    <div className="card">
+    <div className={`card${Icon ? ' card-media' : ''}`}>
       {Icon && (
         <div className="merch-icon-box">
           <Icon />
         </div>
       )}
-      <h3>{item.name}</h3>
-      <p className="card-price">Ksh {item.price!.toLocaleString()}</p>
-      <button type="button" className="btn btn-primary btn-sm" onClick={() => setOpen(true)}>
-        Order {item.name}
-      </button>
+      <div className={Icon ? 'card-body' : undefined}>
+        <h3>{item.name}</h3>
+        <p className="card-price">Ksh {item.price!.toLocaleString()}</p>
+        <button type="button" className="btn btn-primary btn-sm" onClick={() => setOpen(true)}>
+          Order {item.name}
+        </button>
 
-      <Modal open={open} onClose={() => setOpen(false)} title={`Order ${item.name}`}>
-        <MerchOrderForm item={item} />
-      </Modal>
+        <Modal open={open} onClose={() => setOpen(false)} title={`Order ${item.name}`}>
+          <MerchOrderForm item={item} />
+        </Modal>
+      </div>
     </div>
   );
 }

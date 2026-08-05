@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'motion/react';
 import { Eyebrow } from '../components/common/Eyebrow';
 import { Heading } from '../components/common/Heading';
+import { Lightbox } from '../components/common/Lightbox';
 import { PinnedCard } from '../components/common/PinnedCard';
-import { Slideshow } from '../components/gallery/Slideshow';
+import { MasonryGrid } from '../components/gallery/MasonryGrid';
 import { CountdownTimer } from '../components/camp/CountdownTimer';
 import { SITE_CONFIG } from '../data/siteConfig';
 
@@ -14,22 +16,21 @@ const GALLERY_IMAGES = Array.from(
 
 export function CampIgnitePage() {
   const reduceMotion = useReducedMotion();
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
   return (
     <>
-      <section className="hero">
-        <div className="container hero-grid">
+      <section className="hero-dark">
+        <div className="container">
           <motion.div
             initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="camp-logo-badge">
-              <img src="/assets/camp-ignite-flame-icon.png" alt="Camp Ignite 2026" />
-            </div>
+            <img src="/assets/camp-ignite-flame-icon.png" alt="Camp Ignite 2026" className="hero-dark-flame" />
             <Eyebrow>Mombasa &middot; 27 Dec &ndash; 2 Jan</Eyebrow>
             <h1>Camp Ignite 2026</h1>
-            <p style={{ fontSize: '1.05rem', maxWidth: 480 }}>
+            <p style={{ fontSize: '1.05rem', maxWidth: 520, margin: '0 auto' }}>
               Total camp fee: <b>Ksh {SITE_CONFIG.campFeeTotal.toLocaleString()}</b>. Pay in installments at your
               own pace, then create your account to track your payments and watch your progress toward camp.
             </p>
@@ -37,15 +38,9 @@ export function CampIgnitePage() {
               <Link to="/camp-account" className="btn btn-flame">Create My Camp Account</Link>
               <a href="#how-it-works" className="btn btn-outline">See How It Works</a>
             </div>
-            <CountdownTimer targetDate={SITE_CONFIG.campStart} />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-          >
-            <Slideshow images={GALLERY_IMAGES} />
+            <div className="countdown-dark">
+              <CountdownTimer targetDate={SITE_CONFIG.campStart} />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -88,6 +83,16 @@ export function CampIgnitePage() {
         </div>
       </section>
 
+      <section className="section-tight section-alt">
+        <div className="container">
+          <div className="center" style={{ marginBottom: 24 }}>
+            <Eyebrow>Moments From Camp</Eyebrow>
+            <h2>Last Year At Camp Ignite</h2>
+          </div>
+          <MasonryGrid images={GALLERY_IMAGES} onSelect={setLightboxSrc} />
+        </div>
+      </section>
+
       <section className="section-tight">
         <div className="container" style={{ maxWidth: 560 }}>
           <div className="card center">
@@ -101,6 +106,8 @@ export function CampIgnitePage() {
           </div>
         </div>
       </section>
+
+      <Lightbox src={lightboxSrc} onClose={() => setLightboxSrc(null)} />
     </>
   );
 }

@@ -13,8 +13,8 @@ export function FlameMeter({ pct }: { pct: number }) {
   return (
     <div className="flame-meter">
       <svg viewBox="0 0 24 28" width="130" height="150">
-        <path d={OUTER_PATH} fill="#EAF6FD" stroke="#BFE3F5" strokeWidth="0.4" />
-        <path d={INNER_PATH} fill="#F5FBFE" />
+        <path d={OUTER_PATH} fill="#EDF8FE" stroke="#101C33" strokeWidth="0.6" />
+        <path d={INNER_PATH} fill="#F7FAFC" />
         <clipPath id="flameClip">
           <motion.rect
             x="0"
@@ -26,16 +26,16 @@ export function FlameMeter({ pct }: { pct: number }) {
           />
         </clipPath>
         <g clipPath="url(#flameClip)">
-          <path d={OUTER_PATH} fill="#FF7A45" />
+          <path d={OUTER_PATH} fill="#F97B4F" stroke="#101C33" strokeWidth="0.6" />
           <path d={INNER_PATH} fill="#FFD9C4" />
         </g>
       </svg>
       <p
         style={{
-          fontFamily: "'Outfit', sans-serif",
+          fontFamily: "'Montserrat', sans-serif",
           fontWeight: 800,
           fontSize: '1.4rem',
-          color: '#E24E1B',
+          color: '#D9542B',
           margin: '6px 0 0',
         }}
       >

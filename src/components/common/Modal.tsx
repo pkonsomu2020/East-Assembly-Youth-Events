@@ -51,7 +51,7 @@ export function Modal({
           >
             <button type="button" className="modal-close" aria-label="Close" onClick={onClose}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M6 6L18 18M18 6L6 18" stroke="#122A3C" strokeWidth="2" strokeLinecap="round" />
+                <path d="M6 6L18 18M18 6L6 18" stroke="#101C33" strokeWidth="2" strokeLinecap="round" />
               </svg>
             </button>
             {title && <h3 className="modal-title">{title}</h3>}

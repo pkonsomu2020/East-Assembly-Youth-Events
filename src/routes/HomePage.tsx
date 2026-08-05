@@ -3,6 +3,8 @@ import { motion, useReducedMotion } from 'motion/react';
 import { Eyebrow } from '../components/common/Eyebrow';
 import { Heading } from '../components/common/Heading';
 import { HeroPhotoShowcase } from '../components/hero/HeroPhotoShowcase';
+import { PhotoMarquee } from '../components/hero/PhotoMarquee';
+import { FlameToggleCTA } from '../components/home/FlameToggleCTA';
 import { SITE_CONFIG, telHref } from '../data/siteConfig';
 
 const FEATURE_CARDS = [
@@ -10,6 +12,15 @@ const FEATURE_CARDS = [
   { title: 'Merchandise', blurb: 'Hoodies, tees, jerseys, caps & more.', to: '/merchandise', cta: 'Shop Now' },
   { title: 'Camp Ignite 2026', blurb: 'Mombasa · 27 Dec 2026 – 2 Jan 2027', to: '/camp-ignite', cta: 'Register' },
   { title: 'Volunteer', blurb: 'Media, Worship, Ushers & more.', to: '/volunteer', cta: 'Serve With Us' },
+];
+
+const TEAMS = [
+  { emoji: '🎥', label: 'Media' },
+  { emoji: '🎤', label: 'Worship' },
+  { emoji: '🚪', label: 'Ushers' },
+  { emoji: '🤝', label: 'Hospitality' },
+  { emoji: '📣', label: 'Evangelism' },
+  { emoji: '📸', label: 'Photography' },
 ];
 
 export function HomePage() {
@@ -65,6 +76,10 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="section-tight">
+        <PhotoMarquee />
+      </section>
+
       <section className="section-alt">
         <div className="container">
           <div className="center" style={{ marginBottom: 36 }}>
@@ -96,6 +111,23 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="section-tight">
+        <div className="container">
+          <div className="center" style={{ marginBottom: 30 }}>
+            <Eyebrow>Where You Fit In</Eyebrow>
+            <Heading underline>Serve On A Team</Heading>
+          </div>
+          <div className="team-strip">
+            {TEAMS.map((team) => (
+              <div className="team-strip-item" key={team.label}>
+                <span className="team-strip-icon">{team.emoji}</span>
+                <span>{team.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section>
         <div className="container">
           <div id="join" className="cta-banner">
@@ -113,6 +145,9 @@ export function HomePage() {
                   <span className="cta-tag">🔥 On Fire For Christ</span>
                   <span className="cta-tag">🤝 New & Existing Members Welcome</span>
                   <span className="cta-tag">🙋 3 Team Contacts Below</span>
+                </div>
+                <div style={{ marginTop: 28 }}>
+                  <FlameToggleCTA />
                 </div>
               </div>
               <div className="cta-banner-action">

@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { SiteHeader } from './components/layout/SiteHeader';
 import { SiteFooter } from './components/layout/SiteFooter';
+import { LoadingScreen } from './components/layout/LoadingScreen';
 import { HomePage } from './routes/HomePage';
 import { EventsPage } from './routes/EventsPage';
 import { MerchandisePage } from './routes/MerchandisePage';
@@ -14,6 +15,7 @@ export default function App() {
 
   return (
     <>
+      <LoadingScreen />
       <SiteHeader />
       <Routes>
         <Route path="/" element={<HomePage />} />
