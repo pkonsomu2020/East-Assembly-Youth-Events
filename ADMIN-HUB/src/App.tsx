@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { useAdminAuth } from './hooks/useAdminAuth';
 import { LoginPage } from './routes/LoginPage';
-import { AdminHeader } from './components/layout/AdminHeader';
+import { AdminSidebar } from './components/layout/AdminSidebar';
 import { OverviewPage } from './routes/OverviewPage';
 import { CampRegistrantsPage } from './routes/CampRegistrantsPage';
 import { EventRegistrationsPage } from './routes/EventRegistrationsPage';
@@ -28,9 +28,9 @@ export default function App() {
   }
 
   return (
-    <>
-      <AdminHeader email={state.email} onSignOut={signOut} />
-      <main className="admin-main">
+    <div className="admin-shell">
+      <AdminSidebar email={state.email} onSignOut={signOut} />
+      <main className="admin-main admin-content">
         <Routes>
           <Route path="/" element={<OverviewPage />} />
           <Route path="/camp-ignite" element={<CampRegistrantsPage />} />
@@ -39,6 +39,6 @@ export default function App() {
           <Route path="/volunteers" element={<VolunteersPage />} />
         </Routes>
       </main>
-    </>
+    </div>
   );
 }
