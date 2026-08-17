@@ -111,8 +111,7 @@ export function MembersPage() {
                 <Eyebrow>Registration Form</Eyebrow>
                 <h2 style={{ marginTop: 6 }}>Tell Us About Yourself</h2>
                 <p className="small-note">
-                  Fill in as much as you are comfortable with. Only your name and phone number are required, the rest
-                  helps us reach out to you better.
+                  Please fill in your details below and our team will be delighted to connect with you.
                 </p>
               </div>
               <MemberRegistrationForm />

@@ -71,8 +71,8 @@ export function VolunteerForm() {
         />
       </div>
       <div className="field">
-        <label>Email (optional)</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <label>Email</label>
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       </div>
       <div className="field">
         <label>Anything we should know about your availability?</label>

@@ -31,10 +31,10 @@ export function MemberRegistrationForm() {
       member_type: memberType,
       full_name: fullName.trim(),
       phone: phone.trim(),
-      email: email.trim() || null,
-      residence: residence.trim() || null,
-      age: age ? Number(age) : null,
-      how_you_heard: howYouHeard.trim() || null,
+      email: email.trim(),
+      residence: residence.trim(),
+      age: Number(age),
+      how_you_heard: howYouHeard.trim(),
       prayer_request: prayerRequest.trim() || null,
     };
 
@@ -78,7 +78,7 @@ export function MemberRegistrationForm() {
             <label
               key={opt.value}
               className={`badge-dept${memberType === opt.value ? ' selected' : ''}`}
-              style={{ flexDirection: 'column', alignItems: 'flex-start', padding: '10px 16px', gap: 2 }}
+              style={{ flexDirection: 'column', alignItems: 'flex-start', padding: '10px 16px', gap: 2, cursor: 'pointer' }}
             >
               <input
                 type="radio"
@@ -118,43 +118,47 @@ export function MemberRegistrationForm() {
       </div>
 
       <div className="field">
-        <label>Email (optional)</label>
+        <label>Email</label>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
           placeholder="your@email.com"
         />
       </div>
 
       <div className="field">
-        <label>Where do you reside? (optional)</label>
+        <label>Where do you reside?</label>
         <input
           type="text"
           value={residence}
           onChange={(e) => setResidence(e.target.value)}
+          required
           placeholder="e.g. Buruburu, Eastleigh, Kayole…"
         />
       </div>
 
       <div className="field">
-        <label>Age (optional)</label>
+        <label>Age</label>
         <input
           type="number"
           min={10}
-          max={35}
+          max={45}
           value={age}
           onChange={(e) => setAge(e.target.value)}
+          required
           placeholder="e.g. 22"
         />
       </div>
 
       <div className="field">
-        <label>How did you hear about us? (optional)</label>
+        <label>How did you hear about us?</label>
         <input
           type="text"
           value={howYouHeard}
           onChange={(e) => setHowYouHeard(e.target.value)}
+          required
           placeholder="e.g. A friend, social media, Sunday service…"
         />
       </div>
