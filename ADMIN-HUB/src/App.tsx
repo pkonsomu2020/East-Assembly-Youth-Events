@@ -7,6 +7,7 @@ import { CampRegistrantsPage } from './routes/CampRegistrantsPage';
 import { EventRegistrationsPage } from './routes/EventRegistrationsPage';
 import { MerchandiseOrdersPage } from './routes/MerchandiseOrdersPage';
 import { VolunteersPage } from './routes/VolunteersPage';
+import { MemberRegistrationsPage } from './routes/MemberRegistrationsPage';
 
 export default function App() {
   const { state, signOut } = useAdminAuth();
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/events" element={<EventRegistrationsPage />} />
           <Route path="/merchandise" element={<MerchandiseOrdersPage />} />
           <Route path="/volunteers" element={<VolunteersPage />} />
+          <Route path="/members" element={<MemberRegistrationsPage />} />
         </Routes>
       </main>
     </div>

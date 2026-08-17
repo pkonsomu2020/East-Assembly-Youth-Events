@@ -1,10 +1,19 @@
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'motion/react';
+import {
+  MdCameraAlt,
+  MdMic,
+  MdVolunteerActivism,
+  MdMusicNote,
+  MdCampaign,
+  MdSportsSoccer,
+} from 'react-icons/md';
 import { Eyebrow } from '../components/common/Eyebrow';
 import { Heading } from '../components/common/Heading';
 import { HeroPhotoShowcase } from '../components/hero/HeroPhotoShowcase';
 import { PhotoMarquee } from '../components/hero/PhotoMarquee';
 import { FlameToggleCTA } from '../components/home/FlameToggleCTA';
+import { VerseOfTheDay } from '../components/bible/VerseOfTheDay';
 import { SITE_CONFIG, telHref } from '../data/siteConfig';
 
 const FEATURE_CARDS = [
@@ -15,12 +24,12 @@ const FEATURE_CARDS = [
 ];
 
 const TEAMS = [
-  { emoji: '🎥', label: 'Media' },
-  { emoji: '🎤', label: 'Worship' },
-  { emoji: '🚪', label: 'Ushers' },
-  { emoji: '🤝', label: 'Hospitality' },
-  { emoji: '📣', label: 'Evangelism' },
-  { emoji: '📸', label: 'Photography' },
+  { icon: MdCameraAlt,        label: 'Media & Marketing Ministry' },
+  { icon: MdMic,              label: 'Master of Ceremonies' },
+  { icon: MdVolunteerActivism,label: 'Prayer Ministry' },
+  { icon: MdMusicNote,        label: 'Ezesha Worship Team' },
+  { icon: MdCampaign,         label: 'Outreach Ministry' },
+  { icon: MdSportsSoccer,     label: 'Sports Ministry' },
 ];
 
 export function HomePage() {
@@ -80,6 +89,17 @@ export function HomePage() {
         <PhotoMarquee />
       </section>
 
+      {/* Verse of the Day */}
+      <section className="section-tight section-alt">
+        <div className="container">
+          <div className="center" style={{ marginBottom: 20 }}>
+            <Eyebrow>The Living Word</Eyebrow>
+            <Heading underline>Verse of the Day</Heading>
+          </div>
+          <VerseOfTheDay compact />
+        </div>
+      </section>
+
       <section className="section-alt">
         <div className="container">
           <div className="center" style={{ marginBottom: 36 }}>
@@ -114,13 +134,15 @@ export function HomePage() {
       <section className="section-tight">
         <div className="container">
           <div className="center" style={{ marginBottom: 30 }}>
-            <Eyebrow>Where You Fit In</Eyebrow>
+            <Eyebrow>Where to Serve</Eyebrow>
             <Heading underline>Serve On A Team</Heading>
           </div>
           <div className="team-strip">
             {TEAMS.map((team) => (
               <div className="team-strip-item" key={team.label}>
-                <span className="team-strip-icon">{team.emoji}</span>
+                <span className="team-strip-icon">
+                  <team.icon size={28} />
+                </span>
                 <span>{team.label}</span>
               </div>
             ))}

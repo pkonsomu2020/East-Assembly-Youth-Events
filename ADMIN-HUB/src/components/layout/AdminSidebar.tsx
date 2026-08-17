@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { to: '/events', label: 'Events' },
   { to: '/merchandise', label: 'Merchandise' },
   { to: '/volunteers', label: 'Volunteers' },
+  { to: '/members', label: 'Members' },
 ];
 
 export function AdminSidebar({ email, onSignOut }: { email: string; onSignOut: () => void }) {

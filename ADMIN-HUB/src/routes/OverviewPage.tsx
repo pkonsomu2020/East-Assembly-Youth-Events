@@ -3,6 +3,7 @@ import { useCampRegistrants } from '../hooks/useCampRegistrants';
 import { useEventRegistrations } from '../hooks/useEventRegistrations';
 import { useMerchandiseOrders } from '../hooks/useMerchandiseOrders';
 import { useVolunteers } from '../hooks/useVolunteers';
+import { useMemberRegistrations } from '../hooks/useMemberRegistrations';
 import { getPaymentPattern } from '../lib/paymentPattern';
 import { StatCard } from '../components/common/StatCard';
 
@@ -11,6 +12,7 @@ export function OverviewPage() {
   const { rows: events, loading: eventsLoading } = useEventRegistrations();
   const { rows: orders, loading: ordersLoading } = useMerchandiseOrders();
   const { rows: volunteers, loading: volunteersLoading } = useVolunteers();
+  const { rows: members, loading: membersLoading } = useMemberRegistrations();
 
   const campStats = useMemo(() => {
     let collected = 0;
@@ -41,7 +43,7 @@ export function OverviewPage() {
   const pendingEvents = events.filter((e) => e.payment_status === 'pending').length;
   const pendingOrders = orders.filter((o) => o.order_status === 'pending').length;
 
-  const loading = campLoading || eventsLoading || ordersLoading || volunteersLoading;
+  const loading = campLoading || eventsLoading || ordersLoading || volunteersLoading || membersLoading;
 
   return (
     <div>
@@ -76,6 +78,11 @@ export function OverviewPage() {
             <StatCard label="Event Registrations" value={String(events.length)} sub={`${pendingEvents} pending verification`} />
             <StatCard label="Merchandise Orders" value={String(orders.length)} sub={`${pendingOrders} pending verification`} />
             <StatCard label="Volunteers Signed Up" value={String(volunteers.length)} />
+            <StatCard
+              label="Member Registrations"
+              value={String(members.length)}
+              sub={`${members.filter((m) => m.member_type === 'born-again').length} born again`}
+            />
           </div>
         </>
       )}

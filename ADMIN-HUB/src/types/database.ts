@@ -64,3 +64,16 @@ export interface CampPaymentRow {
 export interface CampRegistrantWithPayments extends CampRegistrationRow {
   payments: CampPaymentRow[];
 }
+
+export interface MemberRegistrationRow {
+  id: string;
+  member_type: 'new' | 'born-again';
+  full_name: string;
+  phone: string;
+  email: string | null;
+  residence: string | null;
+  age: number | null;
+  how_you_heard: string | null;
+  prayer_request: string | null;
+  created_at: string;
+}

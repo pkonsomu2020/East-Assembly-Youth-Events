@@ -55,6 +55,8 @@ export function SiteFooter() {
             <p><Link to="/merchandise">Merchandise Store</Link></p>
             <p><Link to="/camp-ignite">Camp Ignite 2026</Link></p>
             <p><Link to="/volunteer">Volunteer</Link></p>
+            <p><Link to="/members">Members Registration</Link></p>
+            <p><Link to="/bible">Bible &amp; Sermon Notes</Link></p>
           </div>
           <div>
             <h4>General Contacts</h4>
