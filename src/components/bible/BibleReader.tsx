@@ -177,7 +177,6 @@ export function BibleReader() {
 
   const book       = BIBLE_BOOKS[bookIdx] || BIBLE_BOOKS[0];
   const maxChapter = book.chapters;
-  const bookNum    = bookIdx + 1;
   const def        = TRANSLATIONS[translation];
 
   // ── Loader ──
