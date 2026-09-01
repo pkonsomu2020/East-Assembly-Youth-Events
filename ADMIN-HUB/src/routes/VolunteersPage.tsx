@@ -11,7 +11,7 @@ import type { IconType } from 'react-icons';
 import { useVolunteers } from '../hooks/useVolunteers';
 import { SearchInput } from '../components/common/SearchInput';
 
-// Canonical department list — must match src/components/volunteer/DepartmentPicker.tsx
+// Canonical department list: must match src/components/volunteer/DepartmentPicker.tsx
 const DEPT_MAP: Record<string, IconType> = {
   'Media & Marketing Ministry': MdCameraAlt,
   'Master of Ceremonies':       MdMic,

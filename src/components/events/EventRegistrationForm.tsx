@@ -7,11 +7,11 @@ import { Alert } from '../common/Alert';
 import { Button } from '../common/Button';
 import { TillBox } from '../common/TillBox';
 
-export function EventRegistrationForm({ event }: { event: EventDef }) {
+export function EventRegistrationForm({ event, userId }: { event: EventDef; userId: string }) {
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [expectation, setExpectation] = useState('');
-  const [amount, setAmount] = useState('');
+  const [amount, setAmount] = useState(event.feeAmount ? String(event.feeAmount) : '');
   const [mpesa, setMpesa] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState<AlertState | null>(null);
@@ -20,6 +20,7 @@ export function EventRegistrationForm({ event }: { event: EventDef }) {
     e.preventDefault();
 
     const payload: Record<string, unknown> = {
+      user_id: userId,
       event_slug: event.slug,
       event_name: event.name,
       full_name: fullName.trim(),
@@ -86,7 +87,7 @@ export function EventRegistrationForm({ event }: { event: EventDef }) {
 
       {event.requiresPayment && (
         <>
-          <TillBox />
+          <TillBox totalLabel={event.feeAmount ? `Ksh ${event.feeAmount.toLocaleString()}` : undefined} />
           <div className="field">
             <label>Amount Sent (Ksh)</label>
             <input type="number" min={1} value={amount} onChange={(e) => setAmount(e.target.value)} required />

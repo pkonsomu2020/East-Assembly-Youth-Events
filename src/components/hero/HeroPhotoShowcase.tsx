@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { MdLocalFireDepartment } from 'react-icons/md';
 import { SITE_CONFIG } from '../../data/siteConfig';
 
 const SLIDES = [
@@ -100,7 +101,7 @@ export function HeroPhotoShowcase() {
       </div>
 
       <div className="hero-badge hero-badge-top">
-        🔥 <span>On Fire For Christ</span>
+        <MdLocalFireDepartment size={16} /> <span>On Fire For Christ</span>
       </div>
       <div className="hero-badge hero-badge-bottom">
         <b>Camp Ignite 2026</b>

@@ -7,14 +7,22 @@ import {
   MdMusicNote,
   MdCampaign,
   MdSportsSoccer,
+  MdPhone,
+  MdLocalFireDepartment,
+  MdHandshake,
+  MdContactPhone,
 } from 'react-icons/md';
 import { Eyebrow } from '../components/common/Eyebrow';
 import { Heading } from '../components/common/Heading';
 import { HeroPhotoShowcase } from '../components/hero/HeroPhotoShowcase';
 import { PhotoMarquee } from '../components/hero/PhotoMarquee';
 import { FlameToggleCTA } from '../components/home/FlameToggleCTA';
+import { UpcomingEventBanner } from '../components/home/UpcomingEventBanner';
 import { VerseOfTheDay } from '../components/bible/VerseOfTheDay';
 import { SITE_CONFIG, telHref } from '../data/siteConfig';
+import { EVENTS } from '../data/events';
+
+const UPCOMING_EVENT = EVENTS.find((e) => e.slug === 'youth-dinner');
 
 const FEATURE_CARDS = [
   { title: 'Youth Events', blurb: 'Dinner, retreats, worship nights & hangouts.', to: '/events', cta: 'View Events' },
@@ -49,7 +57,7 @@ export function HomePage() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
             >
-              <Eyebrow>🔥 On Fire For Christ</Eyebrow>
+              <Eyebrow><MdLocalFireDepartment size={14} /> On Fire For Christ</Eyebrow>
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
@@ -84,6 +92,14 @@ export function HomePage() {
           <HeroPhotoShowcase />
         </div>
       </section>
+
+      {UPCOMING_EVENT && (
+        <section className="section-tight">
+          <div className="container">
+            <UpcomingEventBanner event={UPCOMING_EVENT} />
+          </div>
+        </section>
+      )}
 
       <section className="section-tight">
         <PhotoMarquee />
@@ -164,9 +180,9 @@ export function HomePage() {
                   you've been part of the family for years, there's a place for you here.
                 </p>
                 <div className="cta-tags">
-                  <span className="cta-tag">🔥 On Fire For Christ</span>
-                  <span className="cta-tag">🤝 New & Existing Members Welcome</span>
-                  <span className="cta-tag">🙋 3 Team Contacts Below</span>
+                  <span className="cta-tag"><MdLocalFireDepartment size={14} /> On Fire For Christ</span>
+                  <span className="cta-tag"><MdHandshake size={14} /> New & Existing Members Welcome</span>
+                  <span className="cta-tag"><MdContactPhone size={14} /> 3 Team Contacts Below</span>
                 </div>
                 <div style={{ marginTop: 28 }}>
                   <FlameToggleCTA />
@@ -179,7 +195,7 @@ export function HomePage() {
                 <div className="contact-chip-list">
                   {SITE_CONFIG.mainContacts.map((contact) => (
                     <a key={contact.phone} href={telHref(contact.phone)} className="contact-chip">
-                      <span className="contact-chip-icon">📞</span>
+                      <span className="contact-chip-icon"><MdPhone size={16} /></span>
                       <span>
                         <b>{contact.name}</b>
                         <small>{contact.phone}</small>

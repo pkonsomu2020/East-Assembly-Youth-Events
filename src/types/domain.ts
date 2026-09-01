@@ -5,9 +5,12 @@ export interface EventDef {
   dateLabel: string;
   dateISO: string | null;
   venue?: string;
+  /** Precise Google Maps link for the venue. Falls back to a maps search built from `venue` if omitted. */
+  mapUrl?: string;
   time?: string;
   blurb: string;
   requiresPayment: boolean;
+  feeAmount?: number;
   poster?: string;
 }
 

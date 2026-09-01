@@ -1,4 +1,4 @@
-# Admin Hub — KAG East Assembly Youth Ministry
+# Admin Hub | KAG East Assembly Youth Ministry
 
 An internal dashboard for ministry leadership: see every Camp Ignite registrant and their payment history (including who's paying "Lipa Small Small" in installments vs. all at once), every event ticket registration, every merchandise order, and every volunteer sign-up, plus one-click payment verification instead of hand-editing rows in the Supabase Table Editor.
 
@@ -6,7 +6,7 @@ This is a **separate app** from the main public site, deployed on its own, but p
 
 ## How access control works (read this before deploying)
 
-Nothing here uses the Supabase `service_role` key — that key bypasses all security rules, and this is a plain static frontend, so shipping it would let anyone who opens dev tools read and modify the entire database. Instead, admin access is granted entirely inside Postgres:
+Nothing here uses the Supabase `service_role` key. That key bypasses all security rules, and this is a plain static frontend, so shipping it would let anyone who opens dev tools read and modify the entire database. Instead, admin access is granted entirely inside Postgres:
 
 - An `admins` table lists which specific Supabase Auth accounts are allowed to see everything.
 - An `is_admin()` database function checks membership in that table.

@@ -222,7 +222,9 @@
 .hero-badge span{ display:block; }
 .hero-badge-top{
   top: 0; right: 0; transform: rotate(4deg); font-weight: 800; color: var(--ink);
+  display: flex; align-items: center; gap: 6px;
 }
+.hero-badge-top span{ display: inline; }
 .hero-badge-bottom{
   bottom: 4px; left: 0; transform: rotate(-3deg); text-align: left;
 }
@@ -301,6 +303,11 @@
   margin-bottom: 12px;
 }
 .card-price{ font-family: var(--display); font-weight: 800; font-size: 1.3rem; color: var(--flame-deep); }
+.event-meta-line{ display:flex; align-items:center; gap:6px; flex-wrap: wrap; }
+.event-meta-item{ display:inline-flex; align-items:center; gap:4px; }
+.event-meta-sep{ opacity: .6; }
+.event-meta-link{ color: var(--flame-deep); text-decoration: none; }
+.event-meta-link:hover{ text-decoration: underline; }
 
 .card-banner{
   width: 100%; display: block; aspect-ratio: 16 / 10; object-fit: cover;
@@ -308,7 +315,7 @@
 }
 .card-banner-fallback{
   width: 100%; aspect-ratio: 16 / 10; display:flex; align-items:center; justify-content:center;
-  border-bottom: var(--border); font-size: 3rem;
+  border-bottom: var(--border); color: var(--white);
 }
 .event-card-cap-flame{ background: linear-gradient(135deg, var(--flame), var(--flame-deep)); cursor:default; }
 .event-card-cap-free{ background: linear-gradient(135deg, var(--sky), var(--sky-deep)); cursor:default; }
@@ -378,7 +385,11 @@ th{ font-family: var(--display); font-weight:800; color: var(--sky-deep); font-s
   background: var(--sky-pale); border: 1.5px dashed var(--ink);
   border-radius: 0; padding: 26px 28px; text-align:center; margin-bottom: 32px;
 }
-.theme-block .theme-label{ font-family: var(--display); font-weight:700; font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color: var(--flame-deep); margin-bottom:6px; }
+.theme-block .theme-label{
+  display:inline-flex; align-items:center; gap:6px; justify-content:center;
+  font-family: var(--display); font-weight:700; font-size:.8rem; letter-spacing:.1em;
+  text-transform:uppercase; color: var(--flame-deep); margin-bottom:6px;
+}
 .theme-block h2{ margin-bottom: 14px; }
 .theme-block blockquote{ margin: 0; font-style: italic; color: var(--sky-deep); font-size: 1.02rem; max-width: 560px; margin: 0 auto; }
 .theme-block cite{ display:block; margin-top:10px; font-style:normal; font-family: var(--display); font-weight:700; font-size:.85rem; color: var(--ink-soft); }
@@ -776,6 +787,55 @@ th{ font-family: var(--display); font-weight:800; color: var(--sky-deep); font-s
   display:flex; align-items:center; justify-content:center;
 }
 .team-strip-item span{ font-family: var(--display); font-weight:700; font-size:.8rem; color: var(--ink); }
+
+/* Upcoming event countdown banner (homepage): details left, poster right */
+.event-countdown-banner{
+  border: var(--border); border-radius: var(--r-panel); box-shadow: var(--shadow);
+  background: var(--navy-deep); padding: 48px;
+}
+.event-countdown-grid{
+  display:grid; grid-template-columns: 1.1fr 1fr; gap: 44px; align-items:center;
+}
+.event-countdown-content{ text-align: left; }
+.event-countdown-meta{
+  font-family: var(--display); font-weight: 700; font-size: .82rem; letter-spacing: .1em;
+  text-transform: uppercase; color: #9FB6C6;
+}
+.event-countdown-map-link{
+  display: inline-flex; align-items: center; gap: 3px; color: var(--flame); text-decoration: none;
+}
+.event-countdown-map-link:hover{ text-decoration: underline; }
+.event-countdown-content h2{ color: var(--white); margin: 12px 0 30px; }
+.event-countdown-timer{ display:flex; justify-content: flex-start; gap: 20px; margin-bottom: 32px; }
+.event-countdown-unit{ display:flex; flex-direction: column; align-items:center; position: relative; }
+.event-countdown-unit:not(:last-child)::after{
+  content: ':'; position: absolute; right: -14px; top: -4px;
+  font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem, 4vw, 2.8rem);
+  color: rgba(233,242,248,.3);
+}
+.event-countdown-num{
+  font-family: var(--display); font-weight: 800; font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  color: var(--flame); line-height: 1;
+}
+.event-countdown-unit small{
+  font-family: var(--display); font-weight: 600; font-size: .78rem; letter-spacing: .08em;
+  text-transform: uppercase; color: #9FB6C6; margin-top: 8px;
+}
+.event-countdown-poster{
+  border: var(--border); box-shadow: var(--shadow-sm); overflow: hidden; aspect-ratio: 4 / 5;
+}
+.event-countdown-poster img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 800px){
+  .event-countdown-grid{ grid-template-columns: 1fr; gap: 28px; }
+  .event-countdown-content{ text-align: center; }
+  .event-countdown-timer{ justify-content: center; }
+  .event-countdown-poster{ order: -1; max-width: 320px; margin: 0 auto; aspect-ratio: 4 / 5; }
+}
+@media (max-width: 500px){
+  .event-countdown-banner{ padding: 32px 20px; }
+  .event-countdown-timer{ gap: 18px; }
+  .event-countdown-unit:not(:last-child)::after{ right: -12px; }
+}
 
 /* Full-bleed dark hero (Camp Ignite) */
 .hero-dark{

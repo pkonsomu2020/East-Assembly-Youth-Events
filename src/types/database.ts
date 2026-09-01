@@ -1,5 +1,6 @@
 export interface EventRegistrationRow {
   id: string;
+  user_id: string | null;
   event_slug: string;
   event_name: string;
   full_name: string;

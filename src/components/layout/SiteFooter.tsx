@@ -75,7 +75,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-bottom">
           <span>&copy; {new Date().getFullYear()} KAG East Assembly Youth Ministry.</span>
-          <span>Raising a generation on fire. 🔥</span>
+          <span>Raising a generation on fire.</span>
         </div>
       </div>
     </footer>

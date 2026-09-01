@@ -18,6 +18,8 @@ export function useEventRegistrations() {
 
   useEffect(() => {
     refetch();
+    const interval = setInterval(refetch, 20000);
+    return () => clearInterval(interval);
   }, [refetch]);
 
   return { rows, loading, refetch };

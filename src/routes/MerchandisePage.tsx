@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react';
+import { MdPhone } from 'react-icons/md';
 import { Eyebrow } from '../components/common/Eyebrow';
 import { Heading } from '../components/common/Heading';
 import { TillBox } from '../components/common/TillBox';
@@ -79,7 +80,7 @@ export function MerchandisePage() {
                 Call or WhatsApp <b>{SITE_CONFIG.merchContact.name}</b> for sizing help or order questions.
               </p>
               <a href={telHref(SITE_CONFIG.merchContact.phone)} className="btn btn-outline btn-sm">
-                📞 {SITE_CONFIG.merchContact.phone}
+                <MdPhone size={16} /> {SITE_CONFIG.merchContact.phone}
               </a>
               <TillBox />
             </div>

@@ -4,10 +4,17 @@ export const EVENTS: EventDef[] = [
   {
     slug: 'youth-dinner',
     name: 'Youth Dinner',
+    subtitle: 'The Table of Purpose',
     dateLabel: '10th October 2026',
     dateISO: '2026-10-10',
-    blurb: 'An evening of great food, fun, and fellowship as a youth family.',
+    venue: 'Golden Tulip, Westlands',
+    mapUrl: 'https://maps.app.goo.gl/MVjvNfcrbJScfQnM6',
+    time: 'From 6:00 PM',
+    blurb:
+      '"Let no one despise or think less of you because of your youth, but be an example for the believers in speech, in conduct, in love, in faith, and in purity." (1 Timothy 4:12)',
     requiresPayment: true,
+    feeAmount: 2800,
+    poster: '/assets/posters/youth-dinner.jpeg',
   },
   {
     slug: 'youth-retreat',

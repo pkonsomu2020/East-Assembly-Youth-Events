@@ -15,7 +15,6 @@ dist-ssr
 # Environment variables (contains Supabase keys)
 .env
 .env.*
-!.env.example
 
 # Editor directories and files
 .vscode/*
@@ -32,3 +31,4 @@ dist-ssr
 HTML WORK
 .claude
 NEW_EAST YOUTH
+SETUP.md

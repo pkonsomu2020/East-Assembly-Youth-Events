@@ -7,6 +7,7 @@
 
 create table if not exists event_registrations (
   id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) on delete set null, -- registering for an event requires an account
   event_slug text not null,            -- 'youth-dinner' | 'youth-retreat' | 'worship-experience' | 'chill-out'
   event_name text not null,
   full_name text not null,
@@ -21,12 +22,17 @@ create table if not exists event_registrations (
 
 alter table event_registrations enable row level security;
 
--- Anyone (even not logged in) can submit a registration
-create policy "Public can insert event registrations"
+-- Registering for an event requires being logged in, and only for yourself
+create policy "Authenticated users can insert their own event registrations"
   on event_registrations for insert
-  with check (true);
+  to authenticated
+  with check (auth.uid() = user_id);
 
--- No public read access; admins use the Supabase Table Editor / service role to view & verify.
+create policy "Users can view their own event registrations"
+  on event_registrations for select
+  using (auth.uid() = user_id);
+
+-- No broader public read access; admins use Admin Hub (is_admin()) or the Table Editor to view & verify.
 
 -- ---------- MERCHANDISE ----------
 

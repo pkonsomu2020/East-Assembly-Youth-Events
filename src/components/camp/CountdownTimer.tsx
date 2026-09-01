@@ -4,7 +4,7 @@ export function CountdownTimer({ targetDate }: { targetDate: string }) {
   const { days, hours, minutes, seconds, reached } = useCountdown(targetDate);
 
   if (reached) {
-    return <p className="countdown-reached">🔥 Camp Ignite 2026 is here!</p>;
+    return <p className="countdown-reached">Camp Ignite 2026 is here!</p>;
   }
 
   const units = [

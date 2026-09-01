@@ -21,7 +21,7 @@ export function useAdminAuth() {
     }
 
     // Logging in with valid Supabase Auth credentials only proves you have
-    // *an* account (e.g. a Camp Ignite account on the main site) — never
+    // *an* account (e.g. a Camp Ignite account on the main site); never
     // treat that alone as admin access. is_admin() is backed by the same
     // database check that the RLS policies use, so this can't drift out of
     // sync with what the database actually allows a user to read/write.

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'motion/react';
+import { MdLocalFireDepartment } from 'react-icons/md';
 import { Eyebrow } from '../components/common/Eyebrow';
 import { Heading } from '../components/common/Heading';
 import { Lightbox } from '../components/common/Lightbox';
@@ -48,7 +49,7 @@ export function CampIgnitePage() {
       <section className="section-tight">
         <div className="container">
           <div className="theme-block">
-            <div className="theme-label">🔥 This Year's Theme</div>
+            <div className="theme-label"><MdLocalFireDepartment size={14} /> This Year's Theme</div>
             <Heading underline>Live His Life: Do His Work</Heading>
             <blockquote>
               "Whatever you do, work heartily, as for the Lord and not for men, knowing that from the Lord you will

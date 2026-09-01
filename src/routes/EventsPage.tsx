@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
+import { MdCelebration } from 'react-icons/md';
 import { Eyebrow } from '../components/common/Eyebrow';
 import { Lightbox } from '../components/common/Lightbox';
 import { EventCard } from '../components/events/EventCard';
@@ -19,7 +20,7 @@ export function EventsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Eyebrow>🎉 Youth Events</Eyebrow>
+          <Eyebrow><MdCelebration size={14} /> Youth Events</Eyebrow>
           <h1>
             <span className="wt-black">What's</span>{' '}
             <span className="wt-bold-italic">Coming</span>{' '}
