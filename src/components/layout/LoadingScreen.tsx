@@ -24,14 +24,14 @@ export function LoadingScreen() {
           transition={{ duration: 0.5 }}
         >
           <div className="loading-flame-mask">
-            <img src="/assets/camp-ignite-flame-icon.png" alt="" className="loading-flame-ghost" />
+            <img src="/assets/logo.png" alt="KAG East Assembly Youth Ministry" className="loading-flame-ghost" />
             <motion.div
               className="loading-flame-fill"
               initial={{ height: '0%' }}
               animate={{ height: '100%' }}
               transition={{ duration: 2.2, ease: 'easeInOut' }}
             >
-              <img src="/assets/camp-ignite-flame-icon.png" alt="" />
+              <img src="/assets/logo.png" alt="KAG East Assembly Youth Ministry" />
             </motion.div>
           </div>
           <span className="loading-label">KAG East Assembly</span>
